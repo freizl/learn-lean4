@@ -1,0 +1,174 @@
+#+TITLE: Learn Lean 4 - 3 Month Plan
+#+AUTHOR: Haisheng Wu
+#+DATE: 2026-01-26
+#+STARTUP: overview
+
+* Goal
+
+Become comfortable with theorem proving in Lean 4, understand how formal verification works in practice (e.g., AWS Cedar), and build foundation for deeper PL/type theory knowledge.
+
+** Commitment
+- Duration: 3 months (Jan 27 - Apr 27, 2026)
+- Time: 4-6 hours/week
+- Rule: No switching to Coq or other tools. Stay focused.
+
+** Why Lean 4
+- Modern, clean design
+- Functional programming + theorem proving
+- Real-world usage: AWS Cedar (authorization policy verification)
+- Good tooling (VS Code, LSP)
+
+* Primary Resource
+
+** The Hitchhiker's Guide to Logical Verification (2024 Edition)
+
+- Website: https://lean-forward.github.io/hitchhikers-guide/2024/
+- Repository: https://github.com/lean-forward/logical_verification_2024
+- PDF: Available on the website
+
+*** Why This Resource
+- Structured like Software Foundations (which I liked)
+- University course (VU Amsterdam) - well organized
+- Computer science focused (not pure math)
+- Each chapter has: PDF theory + demo files + exercise sheets + homework
+- Covers type theory foundations
+
+*** Setup
+#+begin_src bash
+git clone https://github.com/lean-forward/logical_verification_2025
+cd logical_verification_2025/lean
+# Open in VS Code with Lean 4 extension
+#+end_src
+
+* Monthly Plan
+
+** Month 1: Foundations (Jan 27 - Feb 23)
+
+| Week | Chapter | Topic                    | Hours |
+|------+---------+--------------------------+-------|
+|    1 |       1 | Types and Terms          |   4-6 |
+|    2 |       2 | Programs and Theorems    |   4-6 |
+|    3 |       3 | Backward Proofs (tactics)|   4-6 |
+|    4 |     4-5 | Forward Proofs + FP      |   4-6 |
+
+*** For Each Chapter
+1. Read the PDF section
+2. Work through the demo file (=loveXX_*_demo.lean=)
+3. Complete the exercise sheet (=loveXX_*_exercise_sheet.lean=)
+4. (Optional) Do the homework sheet
+
+** Month 2: Intermediate (Feb 24 - Mar 23)
+
+| Week | Chapter | Topic                    | Hours |
+|------+---------+--------------------------+-------|
+|    5 |       6 | Inductive Predicates     |   4-6 |
+|    6 |       7 | Monads                   |   4-6 |
+|    7 |       8 | Metaprogramming          |   4-6 |
+|    8 |    9-10 | Operational/Denotational |   4-6 |
+
+** Month 3: Advanced + Application (Mar 24 - Apr 27)
+
+| Week | Chapter | Topic                    | Hours |
+|------+---------+--------------------------+-------|
+|    9 |      11 | Hoare Logic              |   4-6 |
+|   10 |   12-13 | Foundations + Rationals  |   4-6 |
+|   11 |   Cedar | Read Cedar Lean spec     |   4-6 |
+|   12 |   Cedar | Continue Cedar study     |   4-6 |
+
+*** Cedar Resources (for Month 3)
+- Cedar Lean Spec: https://github.com/cedar-policy/cedar-spec
+- AWS Blog: https://aws.amazon.com/blogs/opensource/lean-into-verified-software-development/
+- Paper: "How We Built Cedar: A Verification-Guided Approach"
+
+* Supplementary Resources (Reference Only)
+
+Do NOT switch to these. Use only if stuck or for reference.
+
+- Theorem Proving in Lean 4: https://lean-lang.org/theorem_proving_in_lean4/
+- Functional Programming in Lean: https://lean-lang.org/functional_programming_in_lean/
+- Lean 4 Documentation: https://lean-lang.org/documentation/
+- Lean Zulip Chat: https://leanprover.zulipchat.com/
+
+* Progress Tracking
+
+** Month 1
+- [ ] Chapter 1: Types and Terms
+  - [ ] Read PDF
+  - [ ] Demo file
+  - [ ] Exercise sheet
+- [ ] Chapter 2: Programs and Theorems
+  - [ ] Read PDF
+  - [ ] Demo file
+  - [ ] Exercise sheet
+- [ ] Chapter 3: Backward Proofs
+  - [ ] Read PDF
+  - [ ] Demo file
+  - [ ] Exercise sheet
+- [ ] Chapter 4: Forward Proofs
+  - [ ] Read PDF
+  - [ ] Demo file
+  - [ ] Exercise sheet
+- [ ] Chapter 5: Functional Programming
+  - [ ] Read PDF
+  - [ ] Demo file
+  - [ ] Exercise sheet
+
+** Month 2
+- [ ] Chapter 6: Inductive Predicates
+- [ ] Chapter 7: Monads
+- [ ] Chapter 8: Metaprogramming
+- [ ] Chapter 9: Operational Semantics
+- [ ] Chapter 10: Denotational Semantics
+
+** Month 3
+- [ ] Chapter 11: Hoare Logic
+- [ ] Chapter 12: Logical Foundations
+- [ ] Chapter 13: Rational and Real Numbers
+- [ ] Cedar: Read and understand parts of cedar-spec
+
+* Rules for Staying Focused
+
+1. *No switching tools* - Lean 4 only for 3 months
+2. *No "research" rabbit holes* - If you see an interesting Coq paper, ignore it
+3. *Consistency over intensity* - 4 hrs/week for 12 weeks beats 20 hrs for 2 weeks then nothing
+4. *When stuck, ask for help* - Lean Zulip, or Claude
+5. *Track progress* - Check off boxes above
+   
+* Why This Matters (Reminder)
+
+From our conversation:
+
+#+begin_quote
+"After 20 years, I feel like I haven't grown deeply in any domain."
+
+"I've been a tool user, not a domain expert."
+
+"Deep knowledge is not immediately useful. That's what makes it deep."
+
+"The problem was never hours. The problem was stopping after 2 weeks."
+#+end_quote
+
+This is not about getting a job. This is about finally going deep on something.
+
+* Check-in Questions (Weekly)
+
+1. What chapter/section did I complete?
+2. What was confusing?
+3. Did I skip anything? Why?
+4. Am I tempted to switch to something else? (If yes, don't.)
+
+* End Goal (After 3 Months)
+
+- [ ] Comfortable writing basic proofs in Lean 4
+- [ ] Understand tactics and how they work
+- [ ] Can read and follow Lean code in cedar-spec
+- [ ] Foundation for going deeper (or deciding not to)
+
+* When You Feel Like Switching to AI
+
+Read this:
+
+1. You tried RL. You stopped. Same pattern.
+2. AI + formal verification is a growing intersection.
+3. Everyone is chasing AI. Few people understand verification.
+4. The goal is to learn to go deep. The topic is secondary.
