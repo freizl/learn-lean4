@@ -1,0 +1,8 @@
+
+
+* Learning resources
+- [[https://github.com/leanprover-community/logic_and_proof][GitHub - leanprover-community/logic_and_proof]]
+
+* Extended reads
+- https://verse-lab.github.io/papers/loom-preprint.pdf
+  - https://github.com/verse-lab/loom
