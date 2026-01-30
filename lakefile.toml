@@ -1,0 +1,6 @@
+name = "LearnLean4"
+version = "0.1.0"
+defaultTargets = ["LearnLean4"]
+
+[[lean_lib]]
+name = "LearnLean4"
