@@ -1,0 +1,350 @@
+#+TITLE: Learn Lean 4 - Theorem Proving in Lean 4 (3 Month Plan)
+#+AUTHOR: Haisheng Wu
+#+DATE: 2026-01-30
+#+STARTUP: overview
+
+* Goal
+
+Master formal verification fundamentals through Theorem Proving in Lean 4, building toward understanding how formal verification works in practice (AWS Cedar) and foundations for PL theory/type systems.
+
+** Commitment
+- Duration: 3 months
+- Time: 4-6 hours/week
+- Rule: *ONLY* Theorem Proving in Lean 4. No switching to other books.
+
+** Why TPiL (Theorem Proving in Lean 4)
+- Official primary introduction to Lean's proof system
+- Covers the foundations everything else assumes
+- Teaches type theory and dependent types (the "why" behind formal verification)
+- Self-contained - doesn't require FP in Lean or other resources first
+- Directly addresses formal verification goals
+
+* Primary Resource
+
+** Theorem Proving in Lean 4
+- Website: https://lean-lang.org/theorem_proving_in_lean4/
+- Format: Web-based book with interactive examples
+- Can read online or clone repository for local work
+
+*** Why This First (Not Hitchhiker's Guide)
+- Hitchhiker's Guide is "further reading" that skips syntax details
+- TPiL is the foundation that Hitchhiker's Guide assumes you know
+- Starting here prevents gaps that would tempt resource-hopping
+- You'll understand *what* formal verification is before seeing applications
+
+*** What About the Other Books?
+- *FP in Lean*: Future reading (for programming aspects)
+- *Mathematics in Lean*: Future reading (needs TPiL foundation first)
+- *Hitchhiker's Guide*: Future reading (explicitly assumes TPiL knowledge)
+- *Logic and Proof*: Uses older Lean 3, skip for now
+
+All other books → "Future Reading" list. Don't open them for 3 months.
+
+* Monthly Plan
+
+** Month 1: Foundations (Chapters 1-4)
+*Focus: Understanding types as propositions*
+
+| Week | Chapter | Topic                       | Hours |
+|------+---------+-----------------------------+-------|
+|    1 |       2 | Dependent Type Theory       |   4-6 |
+|    2 |       3 | Propositions and Proofs     |   4-6 |
+|    3 |       4 | Quantifiers and Equality    |   4-6 |
+|    4 |       5 | Tactics (Part 1)            |   4-6 |
+
+*** Key Activities
+- Complete ALL exercises (non-negotiable - this is where understanding happens)
+- Keep org-mode file with:
+  - Chapter summaries in YOUR words
+  - "Why" questions that arise
+  - Connections to formal verification goals
+- When tempted to check other resources: log the question, don't switch
+
+*** What You're Learning
+- How types encode propositions (Dependent Type Theory)
+- What dependent types are and why they matter
+- How to read and write basic proofs (Propositions and Proofs)
+- Working with quantifiers and equality
+- Beginning tactics for proof construction
+
+** Month 2: Interactive Proving & Inductive Types (Chapters 5-8)
+*Focus: Learning to actually construct proofs*
+
+| Week | Chapter | Topic                       | Hours |
+|------+---------+-----------------------------+-------|
+|    5 |       5 | Tactics (Part 2)            |   4-6 |
+|    6 |       6 | Interacting with Lean       |   4-6 |
+|    7 |       7 | Inductive Types             |   4-6 |
+|    8 |       8 | Induction and Recursion     |   4-6 |
+
+*** Key Activities
+- Continue exercises
+- Start connecting: "How would AWS Cedar use this?"
+- If concepts feel hard and slow: that's GOOD - means you're going deep
+- Practice tactics until they feel natural
+- Learn the interactive workflow with Lean
+
+*** What You're Learning
+- Practical proof construction with tactics
+- How to effectively interact with Lean (IDE features, debugging)
+- How to define and work with inductive types
+- Proof by induction (core verification technique)
+- Recursive definitions and termination
+
+** Month 3: Advanced Topics + Integration (Chapters 9-12 + Review)
+*Focus: Understanding WHY formal verification works*
+
+| Week | Chapter | Topic                           | Hours |
+|------+---------+---------------------------------+-------|
+|    9 |       9 | Structures and Records          |   4-6 |
+|   10 |      10 | Type Classes                    |   4-6 |
+|   11 |      11 | Conversion Tactic Mode          |   4-6 |
+|   12 |      12 | Axioms and Computation + Review |   4-6 |
+
+*** Key Activities
+- Revisit Month 1 notes - see how much deeper your understanding is now
+- Connect concepts: type classes → polymorphism in verification
+- Understand axioms and what you can/can't prove
+- Master conversion tactics for term rewriting
+- Identify what questions remain for "next phase" planning
+
+*** What You're Learning
+- Structuring data and proofs (Structures and Records)
+- How type classes enable generic proofs
+- Advanced tactic mode for term manipulation (conv)
+- The role of axioms in Lean's foundations
+- Integration of everything learned
+
+* Progress Tracking
+
+** Month 1: Foundations
+- [ ] Chapter 2: Dependent Type Theory
+  - [ ] Read chapter
+  - [ ] Complete exercises
+  - [ ] Write summary in own words
+- [ ] Chapter 3: Propositions and Proofs
+  - [ ] Read chapter
+  - [ ] Complete exercises
+  - [ ] Understand propositions-as-types
+- [ ] Chapter 4: Quantifiers and Equality
+  - [ ] Read chapter
+  - [ ] Complete exercises
+  - [ ] Practice quantifier proofs
+- [ ] Chapter 5: Tactics (Part 1)
+  - [ ] Read chapter (first half)
+  - [ ] Complete exercises
+  - [ ] Learn core tactics
+
+** Month 2: Interactive Proving & Inductive Types
+- [ ] Chapter 5: Tactics (Part 2)
+  - [ ] Finish chapter
+  - [ ] Complete remaining exercises
+  - [ ] Practice until tactics feel natural
+- [ ] Chapter 6: Interacting with Lean
+  - [ ] Learn IDE features
+  - [ ] Understand debugging workflow
+  - [ ] Complete exercises
+- [ ] Chapter 7: Inductive Types
+  - [ ] Understand induction
+  - [ ] Complete exercises
+  - [ ] Define own types
+- [ ] Chapter 8: Induction and Recursion
+  - [ ] Master proof by induction
+  - [ ] Complete exercises
+  - [ ] Connect to verification
+
+** Month 3: Advanced Topics + Integration
+- [ ] Chapter 9: Structures and Records
+  - [ ] Learn structuring techniques
+  - [ ] Complete exercises
+  - [ ] Apply to examples
+- [ ] Chapter 10: Type Classes
+  - [ ] Understand polymorphism
+  - [ ] Complete exercises
+  - [ ] See verification applications
+- [ ] Chapter 11: The Conversion Tactic Mode
+  - [ ] Learn conv tactic
+  - [ ] Complete exercises
+  - [ ] Master term rewriting
+- [ ] Chapter 12: Axioms and Computation
+  - [ ] Understand foundations
+  - [ ] Complete exercises
+  - [ ] Know what's provable
+- [ ] Review Week
+  - [ ] Revisit difficult chapters
+  - [ ] Fill knowledge gaps
+  - [ ] Prepare for next phase
+
+* Rules for Staying Focused
+
+** The Single Resource Rule
+*ONLY* Theorem Proving in Lean 4 for these 3 months.
+
+Do NOT open:
+- FP in Lean (even "just to check syntax")
+- Hitchhiker's Guide (even though you already looked at it)
+- Mathematics in Lean (even "for extra practice")
+- Natural Number Game (save for Month 4+)
+- Any other Lean resource
+
+** When Tempted to Switch
+1. Write down what you wanted to check in "Questions for Later" section below
+2. Close the other resource
+3. Return to TPiL
+4. The question can wait 3 months
+
+** When Stuck on a Concept
+Do NOT switch resources. Instead:
+- Re-read the section slowly
+- Work through examples by hand
+- Take longer - this means you're going deeper
+- Ask in Lean Zulip or ask Claude
+- Remember: "taking longer to understand" = deep learning
+
+** Progress Tracking (Weekly)
+Every week, add brief entry:
+- What chapter/section completed
+- What "clicked" this week
+- What still feels fuzzy
+- Any temptation to switch? (If yes, resist)
+
+* Success Metrics
+
+After 3 months, you should be able to:
+- [ ] Explain what "propositions as types" means
+- [ ] Write basic proofs using tactics
+- [ ] Understand how dependent types enable verification
+- [ ] Read simple Lean proofs and understand what they're doing
+- [ ] Have informed questions about how Cedar implements formal verification
+- [ ] Feel comfortable with Lean syntax and core concepts
+
+* Check-in Points
+
+** End of Month 1
+Questions to answer:
+- Am I maintaining the single-resource discipline?
+- Are exercises getting easier or still challenging?
+- Do I understand the basics of dependent types?
+- Have I avoided switching to other resources?
+
+** End of Month 2
+Questions to answer:
+- Can I write simple proofs without looking up every tactic?
+- Do I understand induction as a proof technique?
+- Am I connecting this to formal verification goals?
+- Still focused on TPiL only?
+
+** End of Month 3
+Questions to answer:
+- What aspects of formal verification clicked vs. remained confusing?
+- What questions do I still have?
+- Ready to plan next phase:
+  - Deeper theory (Hitchhiker's Guide)?
+  - Practical programming (FP in Lean)?
+  - Applied practice (Mathematics in Lean)?
+  - Real systems (AWS Cedar)?
+
+* Questions for Later
+
+(Use this section when you want to check other resources but need to stay focused)
+
+** Questions about FP in Lean
+
+** Questions about Hitchhiker's Guide
+
+** Questions about Mathematics in Lean
+
+** Questions about Natural Number Game
+
+** Other curiosities
+
+* Why This Matters (Reminder)
+
+From our conversations:
+
+#+begin_quote
+"After 20 years, I feel like I haven't grown deeply in any domain."
+
+"I've been a tool user, not a domain expert."
+
+"Deep knowledge is not immediately useful. That's what makes it deep."
+
+"The problem was never hours. The problem was stopping after 2 weeks."
+
+"The real skill being developed is the ability to commit and go deep on a subject."
+#+end_quote
+
+This is not about learning Lean. This is about learning to go deep.
+
+The topic: formal verification.
+The real goal: break the pattern of switching after a few weeks.
+The measure: still working on TPiL in Month 3.
+
+* Weekly Progress Journal
+
+** Week 1
+
+*** What I completed
+
+*** What clicked
+
+*** What's still confusing
+
+*** Temptations to switch (resist!)
+
+** Week 2
+
+** Week 3
+
+** Week 4
+
+** Week 5
+
+** Week 6
+
+** Week 7
+
+** Week 8
+
+** Week 9
+
+** Week 10
+
+** Week 11
+
+** Week 12
+
+* After These 3 Months
+
+We'll design the next plan based on:
+- What aspects of formal verification you want to explore deeper
+- Whether you want more theory (Hitchhiker's) or practice (Math in Lean)
+- Your questions about applying this to real systems (Cedar)
+- What your retention and understanding looks like
+
+But that's Future You's problem. Present You: just focus on TPiL for 3 months.
+
+* Additional Notes
+
+** Why "Taking Longer" Is Good
+If a concept takes you longer to understand, it often means:
+- You're actually understanding it deeply, not just memorizing
+- You're asking the right "why" questions
+- You're building genuine expertise, not surface knowledge
+
+This is the opposite of the pattern you want to break.
+
+** The Discipline is the Skill
+The actual skill you're developing isn't "Lean 4 knowledge."
+It's: "ability to commit and go deep on a subject."
+
+After 3 months of TPiL:
+- You'll have formal verification foundations
+- More importantly: you'll have proven you can stick with something
+
+** Resources Are Not the Problem
+You have access to 5+ excellent Lean books.
+The problem was never "not enough resources."
+The problem was switching between resources.
+
+Solution: Pick one. Stick with it. Go deep.
