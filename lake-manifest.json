@@ -1,5 +1,15 @@
 {"version": "1.1.0",
  "packagesDir": ".lake/packages",
- "packages": [],
+ "packages":
+ [{"url": "https://github.com/argumentcomputer/LSpec",
+   "type": "git",
+   "subDir": null,
+   "scope": "",
+   "rev": "1e6da63a9c92473747e816d07d5c6f6bc7c8a59e",
+   "name": "LSpec",
+   "manifestFile": "lake-manifest.json",
+   "inputRev": "main",
+   "inherited": false,
+   "configFile": "lakefile.toml"}],
  "name": "LearnLean4",
  "lakeDir": ".lake"}

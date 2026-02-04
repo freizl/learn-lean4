@@ -1,6 +1,20 @@
 name = "LearnLean4"
 version = "0.1.0"
 defaultTargets = ["LearnLean4"]
+testDriver = "LearnLean4Tests"
+
+[[require]]
+name = "LSpec"
+git = "https://github.com/argumentcomputer/LSpec"
+rev = "main"
 
 [[lean_lib]]
 name = "LearnLean4"
+
+# Test library (files under Tests/)
+[[lean_lib]]
+name = "Tests"
+
+# Test executable entry point
+[[lean_exe]]
+name = "LearnLean4Tests"
