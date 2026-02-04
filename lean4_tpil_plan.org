@@ -117,15 +117,24 @@ All other books → "Future Reading" list. Don't open them for 3 months.
 
 * Progress Tracking
 
+# What I completed
+# What clicked
+# What's still confusing
+# Temptations to switch (resist!)
 ** Month 1: Foundations
-- [ ] Chapter 2: Dependent Type Theory
-  - [ ] Read chapter
-  - [ ] Complete exercises
-  - [ ] Write summary in own words
+- [X] Chapter 2: Dependent Type Theory
+  - [X] Read chapter
+  - [X] Complete exercises
+  - [X] Write summary in own words
+    a. not hard to follow given Haskell knowledge carry over
+    b. a bit overhead when think through type level programmings
+    c. some details I skipped like what is Axiom, structure etc.
+    d. get decent understanding of lean, propositions, proofs
 - [ ] Chapter 3: Propositions and Proofs
   - [ ] Read chapter
   - [ ] Complete exercises
   - [ ] Understand propositions-as-types
+    a. Play with Proofs and Proposition logic is not easy
 - [ ] Chapter 4: Quantifiers and Equality
   - [ ] Read chapter
   - [ ] Complete exercises
@@ -279,40 +288,6 @@ This is not about learning Lean. This is about learning to go deep.
 The topic: formal verification.
 The real goal: break the pattern of switching after a few weeks.
 The measure: still working on TPiL in Month 3.
-
-* Weekly Progress Journal
-
-** Week 1
-
-*** What I completed
-
-*** What clicked
-
-*** What's still confusing
-
-*** Temptations to switch (resist!)
-
-** Week 2
-
-** Week 3
-
-** Week 4
-
-** Week 5
-
-** Week 6
-
-** Week 7
-
-** Week 8
-
-** Week 9
-
-** Week 10
-
-** Week 11
-
-** Week 12
 
 * After These 3 Months
 
