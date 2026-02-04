@@ -1,3 +1,2 @@
--- This module serves as the root of the `LearnLean4` library.
--- Import modules here that should be built as part of the library.
-import LearnLean4.Basic
+import «LearnLean4».«00_Basic»
+import «LearnLean4».«03_PropProof»
