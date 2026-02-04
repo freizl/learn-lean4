@@ -125,7 +125,7 @@ All other books → "Future Reading" list. Don't open them for 3 months.
 - [X] Chapter 2: Dependent Type Theory
   - [X] Read chapter
   - [X] Complete exercises
-  - [X] Write summary in own words
+  - [X] Write summary in own words [2026-02-04 Wed]
     a. not hard to follow given Haskell knowledge carry over
     b. a bit overhead when think through type level programmings
     c. some details I skipped like what is Axiom, structure etc.

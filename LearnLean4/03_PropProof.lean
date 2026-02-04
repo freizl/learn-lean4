@@ -7,11 +7,15 @@ def g (a b : Nat) : Nat :=
 #check g 2 3
 #eval g 2 3
 
+namespace PropProofExamples
+
 def f (p q : Prop) : Prop :=
   p ∧ q
 
 #check f
 #check f True False
+
+end PropProofExamples
 
 
 /-
@@ -131,3 +135,5 @@ section Conjunction
   #check g2 Nat 2
 
 end Conjunction
+
+#check Or.intro_left
