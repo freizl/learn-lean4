@@ -1,11 +1,13 @@
 
 #check Prop
 
-def g (a b : Nat) : Nat :=
-  a + b
+section
+  def g (a b : Nat) : Nat :=
+    a + b
 
-#check g 2 3
-#eval g 2 3
+  #check g 2 3
+  #eval g 2 3
+end
 
 namespace PropProofExamples
 
@@ -16,7 +18,6 @@ def f (p q : Prop) : Prop :=
 #check f True False
 
 end PropProofExamples
-
 
 /-
 1. `theorem` is special form of `def`, no differ for the kernel type check.
@@ -137,3 +138,101 @@ section Conjunction
 end Conjunction
 
 #check Or.intro_left
+
+namespace disconjunction
+  def f {p q : Prop} (h : p ∨ q) : q ∨ p :=
+   Or.elim h
+    (fun hp : p => Or.inr hp)
+    (fun hq : q =>
+      show q ∨ p from Or.intro_left p hq)
+
+  def g {p q : Prop} (h : p ∨ q) : q ∨ p :=
+    Or.elim h Or.inr Or.inl
+
+  #check f
+  #check g
+
+end disconjunction
+
+namespace Negation
+  variable (p q : Prop)
+  -- `¬p` means `p -> False`, that's why the definition body has `fun hp: p ...`
+  def f (hpq : p → q) (hnq : ¬q) : ¬p :=
+    fun hp : p => hnq (hpq hp)
+
+  #check f
+
+  example (hp : p) (hnp : ¬p) : q := absurd hp hnp
+  #check absurd
+
+end Negation
+
+namespace Equivalence
+  variable (p q : Prop)
+  def f (hpq : p → q) (hqp : q → p) : p ↔ q :=
+    Iff.intro hpq hqp
+
+  #check f
+
+  #check Iff.intro
+  theorem and_swap : p ∧ q ↔ q ∧ p :=
+    Iff.intro
+      (fun hpq : p ∧ q => And.intro hpq.right hpq.left)
+      (fun hqp : q ∧ p => And.intro hqp.right hqp.left)
+
+  theorem and_swap_v2 : p ∧ q ↔ q ∧ p :=
+    ⟨ fun h => ⟨h.right, h.left⟩, fun h => ⟨h.right, h.left⟩ ⟩
+  #check and_swap_v2
+
+  theorem test1 (h : p ∧ q) : q ∧ p :=
+    Iff.mp (and_swap_v2 p q) h
+  #check test1
+
+  theorem test2 (h: p -> q) (hp : p) : q :=
+    h hp
+  #check test2
+
+end Equivalence
+
+namespace Exercises
+  variable (p q r : Prop)
+
+  -- commutativity of ∧ and ∨
+  example : p ∧ q ↔ q ∧ p :=
+    Iff.intro
+      (fun (hpq : p ∧ q) => ⟨hpq.right, hpq.left⟩)
+      (fun (hqp : q ∧ p) => ⟨hqp.right, hqp.left⟩)
+
+  #check Or.comm
+  example : p ∨ q ↔ q ∨ p :=
+    Iff.intro
+      (fun (hpq : p ∨ q) => Or.symm hpq)
+      (fun (hqp : q ∨ p) => Or.symm hqp)
+
+  example : p ∨ q ↔ q ∨ p :=
+    Iff.intro
+      (fun (hpq : p ∨ q) => Or.elim hpq Or.inr Or.inl)
+      (fun (hqp : q ∨ p) => Or.elim hqp Or.inr Or.inl)
+
+  -- associativity of ∧ and ∨
+  example : (p ∧ q) ∧ r ↔ p ∧ (q ∧ r) := sorry
+  example : (p ∨ q) ∨ r ↔ p ∨ (q ∨ r) := sorry
+
+  -- distributivity
+  example : p ∧ (q ∨ r) ↔ (p ∧ q) ∨ (p ∧ r) := sorry
+  example : p ∨ (q ∧ r) ↔ (p ∨ q) ∧ (p ∨ r) := sorry
+
+  -- other properties
+  example : (p → (q → r)) ↔ (p ∧ q → r) := sorry
+  example : ((p ∨ q) → r) ↔ (p → r) ∧ (q → r) := sorry
+  example : ¬(p ∨ q) ↔ ¬p ∧ ¬q := sorry
+  example : ¬p ∨ ¬q → ¬(p ∧ q) := sorry
+  example : ¬(p ∧ ¬p) := sorry
+  example : p ∧ ¬q → ¬(p → q) := sorry
+  example : ¬p → (p → q) := sorry
+  example : (¬p ∨ q) → (p → q) := sorry
+  example : p ∨ False ↔ p := sorry
+  example : p ∧ False ↔ False := sorry
+  example : (p → q) → (¬q → ¬p) := sorry
+
+end Exercises
