@@ -215,8 +215,26 @@ namespace Exercises
       (fun (hqp : q ∨ p) => Or.elim hqp Or.inr Or.inl)
 
   -- associativity of ∧ and ∨
-  example : (p ∧ q) ∧ r ↔ p ∧ (q ∧ r) := sorry
-  example : (p ∨ q) ∨ r ↔ p ∨ (q ∨ r) := sorry
+  example : (p ∧ q) ∧ r ↔ p ∧ (q ∧ r) :=
+    Iff.intro
+      (fun (h1 : (p ∧ q) ∧ r) => ⟨ h1.left.left, ⟨h1.left.right, h1.right⟩ ⟩)
+      (fun (h2 : p ∧ (q ∧ r)) => ⟨ ⟨ h2.left, h2.right.left⟩, h2.right.right ⟩)
+
+  -- Or.elim :: (a ∨ b) -> (a -> c) -> (b -> c) -> c
+  -- (p ∨ q) ∨ r) -> (p ∨ q -> ??) -> (r -> c) -> (p ∨ (q ∨ r))
+  --   p ∨ q -> (p -> p ∨ (q ∨ r)) -> (q -> p ∨ (q ∨ r)) -> p ∨ (q ∨ r)
+  example : (p ∨ q) ∨ r ↔ p ∨ (q ∨ r) :=
+    Iff.intro
+      (fun (h1 : (p ∨ q) ∨ r) => Or.elim h1
+                                   (fun (g1 : p ∨ q) => Or.elim g1
+                                                          (fun g11 => Or.inl g11)
+                                                          (fun g12 => Or.inr (Or.inl g12)))
+                                   (fun (g2 : r) => Or.inr (Or.inr g2)))
+      (fun (h2 : p ∨ (q ∨ r)) => Or.elim h2
+                                   (fun (g1 : p) => Or.inl (Or.inl g1))
+                                   (fun (g2 : (q ∨ r)) => Or.elim g2
+                                                          (fun g21 => Or.inl (Or.inr g21))
+                                                          (fun g22 => Or.inr g22)))
 
   -- distributivity
   example : p ∧ (q ∨ r) ↔ (p ∧ q) ∨ (p ∧ r) := sorry
