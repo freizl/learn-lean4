@@ -237,11 +237,32 @@ namespace Exercises
                                                           (fun g22 => Or.inr g22)))
 
   -- distributivity
-  example : p ∧ (q ∨ r) ↔ (p ∧ q) ∨ (p ∧ r) := sorry
-  example : p ∨ (q ∧ r) ↔ (p ∨ q) ∧ (p ∨ r) := sorry
+  example : p ∧ (q ∨ r) ↔ (p ∧ q) ∨ (p ∧ r) :=
+    Iff.intro
+      (fun (h1 : p ∧ (q ∨ r)) => Or.elim h1.right
+                                   (fun (g1 : q) => Or.inl ⟨h1.left, g1⟩)
+                                   (fun (g2 : r) => Or.inr ⟨h1.left, g2⟩))
+      (fun (h2 : (p ∧ q) ∨ (p ∧ r)) => Or.elim h2
+                                   (fun (g1 : (p ∧ q)) => ⟨g1.left, Or.inl g1.right⟩)
+                                   (fun (g2 : (p ∧ r)) => ⟨g2.left, Or.inr g2.right⟩))
+
+  example : p ∨ (q ∧ r) ↔ (p ∨ q) ∧ (p ∨ r) :=
+    Iff.intro
+       (fun h1 => Or.elim h1
+                     (fun hp => ⟨Or.inl hp, Or.inl hp⟩)
+                     (fun hqr => ⟨Or.inr hqr.left, Or.inr hqr.right⟩))
+       (fun h2 => Or.elim h2.left 
+                    (fun hp => Or.inl hp)
+                    (fun hq => Or.elim h2.right 
+                               (fun hp2 => Or.inl hp2)
+                               (fun hr => Or.inr ⟨hq, hr⟩) ))
 
   -- other properties
-  example : (p → (q → r)) ↔ (p ∧ q → r) := sorry
+  example : (p → (q → r)) ↔ (p ∧ q → r) :=
+     Iff.intro
+        sorry
+        sorry
+
   example : ((p ∨ q) → r) ↔ (p → r) ∧ (q → r) := sorry
   example : ¬(p ∨ q) ↔ ¬p ∧ ¬q := sorry
   example : ¬p ∨ ¬q → ¬(p ∧ q) := sorry
