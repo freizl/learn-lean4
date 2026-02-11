@@ -251,27 +251,71 @@ namespace Exercises
        (fun h1 => Or.elim h1
                      (fun hp => ⟨Or.inl hp, Or.inl hp⟩)
                      (fun hqr => ⟨Or.inr hqr.left, Or.inr hqr.right⟩))
-       (fun h2 => Or.elim h2.left 
+       (fun h2 => Or.elim h2.left
                     (fun hp => Or.inl hp)
-                    (fun hq => Or.elim h2.right 
+                    (fun hq => Or.elim h2.right
                                (fun hp2 => Or.inl hp2)
                                (fun hr => Or.inr ⟨hq, hr⟩) ))
 
   -- other properties
+  -- p ∧ q -> r means an function (p ∧ q) -> r
   example : (p → (q → r)) ↔ (p ∧ q → r) :=
      Iff.intro
-        sorry
-        sorry
+        (fun h1 => fun hpq => h1 hpq.left hpq.right)
+        (fun h1 => fun hp => fun hq => h1 ⟨hp,hq⟩)
 
-  example : ((p ∨ q) → r) ↔ (p → r) ∧ (q → r) := sorry
-  example : ¬(p ∨ q) ↔ ¬p ∧ ¬q := sorry
-  example : ¬p ∨ ¬q → ¬(p ∧ q) := sorry
-  example : ¬(p ∧ ¬p) := sorry
-  example : p ∧ ¬q → ¬(p → q) := sorry
-  example : ¬p → (p → q) := sorry
-  example : (¬p ∨ q) → (p → q) := sorry
-  example : p ∨ False ↔ p := sorry
-  example : p ∧ False ↔ False := sorry
-  example : (p → q) → (¬q → ¬p) := sorry
+  example : ((p ∨ q) → r) ↔ (p → r) ∧ (q → r) :=
+     Iff.intro
+       (fun h1 => ⟨ fun hp => h1 (Or.inl hp), fun hq => h1 (Or.inr hq) ⟩)
+       (fun h2 => fun hpq => Or.elim hpq h2.left h2.right)
+
+  example : ¬(p ∨ q) ↔ ¬p ∧ ¬q :=
+   Iff.intro
+     -- (h1 : p ∨ q -> False) -> (p -> False ∧ q -> False)
+     (fun h1 => ⟨ h1 ∘ Or.inl, h1 ∘ Or.inr ⟩)
+     (fun h2 => fun hpq => Or.elim hpq h2.left h2.right )
+
+  example : ¬p ∨ ¬q → ¬(p ∧ q) :=
+    fun h1 =>  -- ¬p ∨ ¬q
+     fun h2 => -- (p ∧ q)
+      Or.elim h1
+        (fun hnp => hnp h2.left)
+        (fun hnq => hnq h2.right)
+
+  example : ¬(p ∧ ¬p) :=
+    fun h1 => -- p ∧ ¬p ... p ∧ (p -> False)
+      h1.right h1.left
+
+  example : p ∧ ¬q → ¬(p → q) :=
+    fun hpnq => -- p ∧ ¬q  .... p ∧ (q -> False)
+      fun hpq => -- p -> q
+        hpnq.right (hpq hpnq.left)
+
+  #check absurd
+  example : ¬p → (p → q) :=
+     fun hnp =>
+       fun hp =>
+         absurd hp hnp
+
+  example : (¬p ∨ q) → (p → q) :=
+    fun hnpq =>
+      fun hp =>
+        Or.elim hnpq
+           (fun np => absurd hp np)
+           id
+
+  example : p ∨ False ↔ p :=
+    Iff.intro
+      (fun hpf => Or.elim hpf id False.elim)
+      (fun hp => Or.inl hp)
+
+  example : p ∧ False ↔ False :=
+    Iff.intro And.right False.elim
+
+  example : (p → q) → (¬q → ¬p) := 
+    fun hpq =>    -- p -> q
+      fun hnq =>  -- q -> False
+        fun hnp => -- p
+           hnq (hpq hnp)
 
 end Exercises
