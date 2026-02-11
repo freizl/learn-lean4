@@ -312,10 +312,28 @@ namespace Exercises
   example : p ∧ False ↔ False :=
     Iff.intro And.right False.elim
 
-  example : (p → q) → (¬q → ¬p) := 
+  example : (p → q) → (¬q → ¬p) :=
     fun hpq =>    -- p -> q
       fun hnq =>  -- q -> False
         fun hnp => -- p
            hnq (hpq hnp)
 
 end Exercises
+
+namespace ClassicalLogic
+  open Classical
+  #check em
+  #check byContradiction
+  #check byCases
+  
+  variable (p q r : Prop)
+  
+  example : (p → q ∨ r) → ((p → q) ∨ (p → r)) := sorry
+  example : ¬(p ∧ q) → ¬p ∨ ¬q := sorry
+  example : ¬(p → q) → p ∧ ¬q := sorry
+  example : (p → q) → (¬p ∨ q) := sorry
+  example : (¬q → ¬p) → (p → q) := sorry
+  example : p ∨ ¬p := sorry
+  example : (((p → q) → p) → p) := sorry
+
+end ClassicalLogic
