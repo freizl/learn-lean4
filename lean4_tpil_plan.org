@@ -122,27 +122,41 @@ All other books → "Future Reading" list. Don't open them for 3 months.
 # What's still confusing
 # Temptations to switch (resist!)
 ** Month 1: Foundations
-- [X] Chapter 2: Dependent Type Theory
-  - [X] Read chapter
-  - [X] Complete exercises
-  - [X] Write summary in own words [2026-02-04 Wed]
-    a. not hard to follow given Haskell knowledge carry over
-    b. a bit overhead when think through type level programmings
-    c. some details I skipped like what is Axiom, structure etc.
-    d. get decent understanding of lean, propositions, proofs
-- [ ] Chapter 3: Propositions and Proofs
-  - [ ] Read chapter
-  - [ ] Complete exercises
-  - [ ] Understand propositions-as-types
-    a. Play with Proofs and Proposition logic is not easy
-- [ ] Chapter 4: Quantifiers and Equality
-  - [ ] Read chapter
-  - [ ] Complete exercises
-  - [ ] Practice quantifier proofs
-- [ ] Chapter 5: Tactics (Part 1)
-  - [ ] Read chapter (first half)
-  - [ ] Complete exercises
-  - [ ] Learn core tactics
+*** DONE Chapter 2: Dependent Type Theory
+CLOSED: [2026-02-04 Wed 20:26]
+:LOGBOOK:
+- State "DONE"       from              [2026-02-10 Tue 20:26]
+:END:
+- [X] Read chapter
+- [X] Complete exercises
+- [X] Write summary in own words [2026-02-04 Wed]
+  a. not hard to follow given Haskell knowledge carry over
+  b. a bit overhead when think through type level programmings
+  c. some details I skipped like what is Axiom, structure etc.
+  d. get decent understanding of lean, propositions, proofs
+*** INPROGRESS Chapter 3: Propositions and Proofs
+:LOGBOOK:
+- State "INPROGRESS" from              [2026-02-10 Tue 20:26]
+:END:
+- [X] Read chapter
+- [ ] Complete exercises
+- [X] Understand propositions-as-types
+- Notes
+  a. Play with Proofs and Proposition logic is not easy
+  b. Half way through the exercise, can finish for most. [2026-02-10 Tue]
+*** Chapter 4: Quantifiers and Equality
+:LOGBOOK:
+CLOCK: [2026-02-10 Tue 20:26]--[2026-02-10 Tue 20:41] =>  0:15
+:END:
+- [ ] Read chapter
+- [ ] Complete exercises
+- [ ] Practice quantifier proofs
+- Note
+  - ~Eq.refl _~ what is this ~_~ ? parameter that lean can auto reason about
+*** Chapter 5: Tactics (Part 1)
+- [ ] Read chapter (first half)
+- [ ] Complete exercises
+- [ ] Learn core tactics
 
 ** Month 2: Interactive Proving & Inductive Types
 - [ ] Chapter 5: Tactics (Part 2)
