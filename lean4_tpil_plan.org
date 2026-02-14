@@ -153,6 +153,8 @@ CLOCK: [2026-02-10 Tue 20:26]--[2026-02-10 Tue 20:41] =>  0:15
 - [ ] Practice quantifier proofs
 - Note
   - ~Eq.refl _~ what is this ~_~ ? parameter that lean can auto reason about
+  - ~Eq.refl~, ~Eq.symm~ etc are all very generic helper to create proof. e.g. as trivial example, given ~a: Nat~, how can you proof `a = a`? answer: `Eq.refl a`
+   
 *** Chapter 5: Tactics (Part 1)
 - [ ] Read chapter (first half)
 - [ ] Complete exercises
@@ -241,32 +243,6 @@ After 3 months, you should be able to:
 - [ ] Have informed questions about how Cedar implements formal verification
 - [ ] Feel comfortable with Lean syntax and core concepts
 
-* Check-in Points
-
-** End of Month 1
-Questions to answer:
-- Am I maintaining the single-resource discipline?
-- Are exercises getting easier or still challenging?
-- Do I understand the basics of dependent types?
-- Have I avoided switching to other resources?
-
-** End of Month 2
-Questions to answer:
-- Can I write simple proofs without looking up every tactic?
-- Do I understand induction as a proof technique?
-- Am I connecting this to formal verification goals?
-- Still focused on TPiL only?
-
-** End of Month 3
-Questions to answer:
-- What aspects of formal verification clicked vs. remained confusing?
-- What questions do I still have?
-- Ready to plan next phase:
-  - Deeper theory (Hitchhiker's Guide)?
-  - Practical programming (FP in Lean)?
-  - Applied practice (Mathematics in Lean)?
-  - Real systems (AWS Cedar)?
-
 * Questions for Later
 
 (Use this section when you want to check other resources but need to stay focused)
@@ -337,3 +313,20 @@ The problem was never "not enough resources."
 The problem was switching between resources.
 
 Solution: Pick one. Stick with it. Go deep.
+
+* What I learned (心得)
+** Some mental model about Proposition as type
+- Keep confusing with following
+  #+begin_example
+def add_zero_prop (n: Nat): Prop := n + 0 = n
+-- theorem no_good (n : Nat) : Prop := Nat.add_zero n
+theorem good (n : Nat) : (add_zero_prop n) := Nat.add_zero n
+  #+end_example
+
+- The confusing I feel comes from cocneteal thing, ~n + 0 = n~ looks like expression, but would this looks easier to understand, I meant ~p \and q~
+  #+begin_example
+def p1: Prop = p \and q                         ----- List p q : Type
+theorem good (n: Nat) : (p \and q) := sorry      ---- def good (n: Nat) : List p q
+  #+end_example
+
+
