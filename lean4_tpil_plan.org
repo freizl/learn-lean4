@@ -19,26 +19,10 @@ Master formal verification fundamentals through Theorem Proving in Lean 4, build
 - Self-contained - doesn't require FP in Lean or other resources first
 - Directly addresses formal verification goals
 
-* Primary Resource
-
-** Theorem Proving in Lean 4
+** Primary Resource Theorem Proving in Lean 4
 - Website: https://lean-lang.org/theorem_proving_in_lean4/
 - Format: Web-based book with interactive examples
 - Can read online or clone repository for local work
-
-*** Why This First (Not Hitchhiker's Guide)
-- Hitchhiker's Guide is "further reading" that skips syntax details
-- TPiL is the foundation that Hitchhiker's Guide assumes you know
-- Starting here prevents gaps that would tempt resource-hopping
-- You'll understand *what* formal verification is before seeing applications
-
-*** What About the Other Books?
-- *FP in Lean*: Future reading (for programming aspects)
-- *Mathematics in Lean*: Future reading (needs TPiL foundation first)
-- *Hitchhiker's Guide*: Future reading (explicitly assumes TPiL knowledge)
-- *Logic and Proof*: Uses older Lean 3, skip for now
-
-All other books → "Future Reading" list. Don't open them for 3 months.
 
 * Monthly Plan
 
@@ -121,6 +105,7 @@ All other books → "Future Reading" list. Don't open them for 3 months.
 # What clicked
 # What's still confusing
 # Temptations to switch (resist!)
+
 ** Month 1: Foundations
 *** DONE Chapter 2: Dependent Type Theory
 CLOSED: [2026-02-04 Wed 20:26]
@@ -134,27 +119,23 @@ CLOSED: [2026-02-04 Wed 20:26]
   b. a bit overhead when think through type level programmings
   c. some details I skipped like what is Axiom, structure etc.
   d. get decent understanding of lean, propositions, proofs
-*** INPROGRESS Chapter 3: Propositions and Proofs
+*** DONE Chapter 3: Propositions and Proofs
+CLOSED: [2026-02-14 Sat 13:03]
 :LOGBOOK:
+- State "DONE"       from "INPROGRESS" [2026-02-14 Sat 13:03]
 - State "INPROGRESS" from              [2026-02-10 Tue 20:26]
 :END:
 - [X] Read chapter
-- [ ] Complete exercises
+- [ ] Complete exercises (partially done.)
 - [X] Understand propositions-as-types
-- Notes
-  a. Play with Proofs and Proposition logic is not easy
-  b. Half way through the exercise, can finish for most. [2026-02-10 Tue]
-*** Chapter 4: Quantifiers and Equality
+*** INPROGRESS Chapter 4: Quantifiers and Equality
 :LOGBOOK:
+- State "INPROGRESS" from              [2026-02-14 Sat 13:03]
 CLOCK: [2026-02-10 Tue 20:26]--[2026-02-10 Tue 20:41] =>  0:15
 :END:
 - [ ] Read chapter
 - [ ] Complete exercises
 - [ ] Practice quantifier proofs
-- Note
-  - ~Eq.refl _~ what is this ~_~ ? parameter that lean can auto reason about
-  - ~Eq.refl~, ~Eq.symm~ etc are all very generic helper to create proof. e.g. as trivial example, given ~a: Nat~, how can you proof `a = a`? answer: `Eq.refl a`
-   
 *** Chapter 5: Tactics (Part 1)
 - [ ] Read chapter (first half)
 - [ ] Complete exercises
@@ -243,52 +224,6 @@ After 3 months, you should be able to:
 - [ ] Have informed questions about how Cedar implements formal verification
 - [ ] Feel comfortable with Lean syntax and core concepts
 
-* Questions for Later
-
-(Use this section when you want to check other resources but need to stay focused)
-
-** Questions about FP in Lean
-
-** Questions about Hitchhiker's Guide
-
-** Questions about Mathematics in Lean
-
-** Questions about Natural Number Game
-
-** Other curiosities
-
-* Why This Matters (Reminder)
-
-From our conversations:
-
-#+begin_quote
-"After 20 years, I feel like I haven't grown deeply in any domain."
-
-"I've been a tool user, not a domain expert."
-
-"Deep knowledge is not immediately useful. That's what makes it deep."
-
-"The problem was never hours. The problem was stopping after 2 weeks."
-
-"The real skill being developed is the ability to commit and go deep on a subject."
-#+end_quote
-
-This is not about learning Lean. This is about learning to go deep.
-
-The topic: formal verification.
-The real goal: break the pattern of switching after a few weeks.
-The measure: still working on TPiL in Month 3.
-
-* After These 3 Months
-
-We'll design the next plan based on:
-- What aspects of formal verification you want to explore deeper
-- Whether you want more theory (Hitchhiker's) or practice (Math in Lean)
-- Your questions about applying this to real systems (Cedar)
-- What your retention and understanding looks like
-
-But that's Future You's problem. Present You: just focus on TPiL for 3 months.
-
 * Additional Notes
 
 ** Why "Taking Longer" Is Good
@@ -315,6 +250,13 @@ The problem was switching between resources.
 Solution: Pick one. Stick with it. Go deep.
 
 * What I learned (心得)
+** Chapter 3
+1. Play with Proofs and Proposition logic is not easy [2026-02-02 Mon]
+2. Half way through the exercise, can finish for most. [2026-02-10 Tue]
+** Chapter 4
+1. ~Eq.refl _~ what is this ~_~ ? parameter that lean can auto reason about
+2. ~Eq.refl~, ~Eq.symm~ etc are all very generic helper to create proof. e.g. as trivial example, given ~a: Nat~, how can you proof `a = a`? answer: `Eq.refl a`
+   
 ** Some mental model about Proposition as type
 - Keep confusing with following
   #+begin_example

@@ -88,3 +88,26 @@ theorem allow_read_of_global_access (hAll : ∀ r : Resource, CanRead alice r) :
   hAll file1
 
 end AccessControl
+
+
+namespace NatPlayground
+
+#check Nat.mul_add
+#check Nat.add_mul
+#check Nat.add_assoc
+#check Eq.symm
+#check Eq.subst
+
+example (a b c : Nat) : a + (b + c) = a + b + c :=
+  Eq.symm (Nat.add_assoc a b c)
+
+
+example (x y : Nat) : (x + y) * (x + y) = x * x + y * x + x * y + y * y :=
+   have h1: (x + y) * (x + y) = (x + y) * x + (x + y) * y := Nat.mul_add (x + y) x y
+   have h2: (x + y) * (x + y) = x * x + y * x + (x * y + y * y) :=
+      (Nat.add_mul x y y) ▸ (Nat.add_mul x y x) ▸ h1
+   have h3: x * x + y * x + (x * y + y * y) = x * x + y * x + x * y + y * y := Eq.symm (Nat.add_assoc (x * x + y * x) (x * y) (y * y))
+  --  h3 ▸ h2
+   Eq.subst h3 h2
+
+end NatPlayground

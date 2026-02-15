@@ -1,9 +1,14 @@
 * LearnLean4
 
 * References
-** Learning resources
-- [[https://github.com/leanprover-community/logic_and_proof][GitHub - leanprover-community/logic_and_proof]]
+** Further Learning resources
+1. [[https://github.com/leanprover-community/logic_and_proof][GitHub - leanprover-community/logic_and_proof]]
+2. FP in Lean
+3. Natural Number Game
+4. Hitchhiker's Guide
+5. Mathematics in Lean
 
 ** Extended reads
-- https://verse-lab.github.io/papers/loom-preprint.pdf
-  - https://github.com/verse-lab/loom
+1. Cedar policy framework source code
+1. https://verse-lab.github.io/papers/loom-preprint.pdf
+   - https://github.com/verse-lab/loom
