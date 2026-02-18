@@ -256,6 +256,12 @@ Solution: Pick one. Stick with it. Go deep.
 ** Chapter 4
 1. ~Eq.refl _~ what is this ~_~ ? parameter that lean can auto reason about
 2. ~Eq.refl~, ~Eq.symm~ etc are all very generic helper to create proof. e.g. as trivial example, given ~a: Nat~, how can you proof `a = a`? answer: `Eq.refl a`
+3. What is Calculation Proof?
+   - just skim the chapter to get ideas
+   - why there are a few ways to proof?
+     a. functional composition
+     b. cal proof
+     c. tactics
    
 ** Some mental model about Proposition as type
 - Keep confusing with following

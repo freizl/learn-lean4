@@ -111,3 +111,46 @@ example (x y : Nat) : (x + y) * (x + y) = x * x + y * x + x * y + y * y :=
    Eq.subst h3 h2
 
 end NatPlayground
+
+#check Exists.intro
+#print Exists.intro
+#check Exists.elim
+
+variable (α : Type) (p q : α → Prop)
+example (h : ∃ x, p x ∧ q x) : ∃ x, q x ∧ p x :=
+  Exists.elim h
+    (fun w =>
+     fun hw : p w ∧ q w =>
+     show ∃ x, q x ∧ p x from ⟨w, hw.right, hw.left⟩)
+
+def IsEven (a : Nat) := ∃ b, a = 2 * b
+
+#check Nat.mul_add
+theorem even_plus_even (h1 : IsEven a) (h2 : IsEven b) :
+    IsEven (a + b) :=
+  let ⟨ a1, ha ⟩ := h1
+  let ⟨ b1, hb ⟩ := h2
+  have h3 : a + b = 2 * (a1 + b1) := by
+    rw [ha, hb]
+    rw [Nat.mul_add]
+  Exists.intro (a1 + b1) h3
+
+namespace Exercise
+
+variable (α : Type) (p q : α → Prop)
+
+example : (∀ x, p x ∧ q x) ↔ (∀ x, p x) ∧ (∀ x, q x) :=
+  Iff.intro
+    (fun h1 => And.intro (fun t => (h1 t).left ) (fun t => (h1 t).right))
+    (fun h2 => fun t => And.intro (h2.left t) (h2.right t))
+
+example : (∀ x, p x → q x) → (∀ x, p x) → (∀ x, q x) :=
+  fun h1 => fun h2 => fun t => h1 t (h2 t)
+
+example : (∀ x, p x) ∨ (∀ x, q x) → ∀ x, p x ∨ q x :=
+   fun h1 => fun t =>
+     Or.elim h1  -- a ∨ b → (a → c) → (b → c) → c
+       (fun l1 => Or.inl (l1 t))
+       (fun r1 => Or.inr (r1 t))
+
+end Exercise
