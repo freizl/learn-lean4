@@ -8,8 +8,16 @@ name = "LSpec"
 git = "https://github.com/argumentcomputer/LSpec"
 rev = "main"
 
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4"
+rev = "v4.31.0"
+
 [[lean_lib]]
 name = "LearnLean4"
+
+[[lean_lib]]
+name = "NaturalNumberGame"
 
 # Test library (files under Tests/)
 [[lean_lib]]
