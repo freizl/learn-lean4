@@ -1,5 +1,28 @@
 * LearnLean4
 
+* NaturalNumberGame
+
+** Notes
+
+1. figure out when to use ~apply foo in hx~ v.s. use ~foo~ (I know it depends the structure of ~foo~) e.g.
+   #+begin_src lean4
+cases hx with a ha
+-- theorm: add_right_eq_zero (a,b) (a + b = 0) -> a = 0
+symm at ha
+-- ha: x + a = 0
+apply add_right_eq_zero x a
+exact ha
+   #+end_src
+
+   It seems maybe related the structure of existing proof,
+
+   ~add_right_eq_zero~ is ~A -> B~ imply shape (used by ~apply~??)
+   ~zero_add~ is ~0 + a = a~ equal shape (hence used by ~rw~ tactic)
+
+2. Difference between ~cases~ and ~induction~ tactic
+
+3. What's best to find references of tactics locally/offline
+
 * References
 ** Further Learning resources
 1. [[https://github.com/leanprover-community/logic_and_proof][GitHub - leanprover-community/logic_and_proof]]
@@ -10,5 +33,6 @@
 
 ** Extended reads
 1. Cedar policy framework source code
-1. https://verse-lab.github.io/papers/loom-preprint.pdf
+2. https://verse-lab.github.io/papers/loom-preprint.pdf
    - https://github.com/verse-lab/loom
+
