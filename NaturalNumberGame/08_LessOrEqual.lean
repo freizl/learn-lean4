@@ -1,36 +1,52 @@
 import NaturalNumberGame.MyNat
+import Mathlib
+import «NaturalNumberGame».«01_Tutorial»
+import «NaturalNumberGame».«02_Addition»
+import «NaturalNumberGame».«07_AdvanceAddition»
 
-example (x y : ℕ) (h : x = 37 ∨ y = 42) : y = 42 ∨ x = 37 := by
-  cases h with
-  | inl h1 => exact Or.inr h1
-  | inr h2 => exact Or.inl h2
+namespace MyNat
 
-theorem or_swap (P Q : Prop) : P ∨ Q → Q ∨ P := by
-  sorry
+-- a ≤ b is notation for ∃ c, b = a + c.
+theorem le_refl (x : ℕ) : x ≤ x := by
+  use 0
+  rw [add_zero]
 
-theorem not_or_left (P Q : Prop) : ¬ (P ∨ Q) → ¬ P := by
-  sorry
+theorem zero_le (x : ℕ) : 0 ≤ x := by
+ -- ∃c, x = 0 + c
+  use x
+  rw [zero_add]
 
-theorem not_or_right (P Q : Prop) : ¬ (P ∨ Q) → ¬ Q := by
-  sorry
+theorem le_succ_self (x : ℕ) : x ≤ succ x := by
+  -- succ x = x + c
+  use 1
+  rw [succ_eq_add_one]
 
-theorem and_imp (P Q : Prop) : P ∧ Q → P := by
-  sorry
+theorem le_trans (x y z : ℕ) (hxy : x ≤ y) (hyz : y ≤ z) : x ≤ z := by
+-- y = x + c1
+-- z = y + c2
+-- z = x + c3
+  cases hxy with
+    | intro a ha =>
+       cases hyz with
+        | intro b hb =>
+           rw [ha, add_assoc] at hb
+           use (a+b)
 
-theorem imp_and (P Q : Prop) : P → Q → P ∧ Q := by
-  sorry
+theorem le_zero (x : ℕ) (hx : x ≤ 0) : x = 0 := by
+  cases hx with
+    | intro a ha =>
+      symm at ha
+      apply add_right_eq_zero x a at ha
+      exact ha
 
-theorem iff_refl (P : Prop) : P ↔ P := by
-  sorry
+theorem le_antisymm (x y : ℕ) (hxy : x ≤ y) (hyx : y ≤ x) : x = y := by
+  cases hxy with
+    | intro a ha =>
+      cases hyx with
+        | intro b hb =>
+          sorry
+          -- rw [ha] at hb
 
-theorem iff_symm (P Q : Prop) : (P ↔ Q) → (Q ↔ P) := by
-  sorry
 
-theorem iff_trans (P Q R : Prop) : (P ↔ Q) → (Q ↔ R) → (P ↔ R) := by
-  sorry
 
-theorem false_implies_any (P : Prop) : False → P := by
-  sorry
-
-theorem any_implies_true (P : Prop) : P → True := by
-  sorry
+end MyNat
