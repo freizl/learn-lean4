@@ -24,12 +24,6 @@ theorem mul_comm (a b : ℕ) : a * b = b * a := by
 theorem mul_assoc (a b c : ℕ) : (a * b) * c = a * (b * c) := by
   sorry
 
-theorem mul_left_comm (a b c : ℕ) : a * (b * c) = b * (a * c) := by
-  sorry
-
-theorem mul_right_comm (a b c : ℕ) : (a * b) * c = (a * c) * b := by
-  sorry
-
 theorem mul_add (a b c : ℕ) : a * (b + c) = a * b + a * c := by
   sorry
 

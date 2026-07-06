@@ -29,4 +29,7 @@ theorem mul_eq_zero' (a b : ℕ) : a * b = 0 → a = 0 ∨ b = 0 := by
 theorem mul_ne_zero' (a b : ℕ) : a ≠ 0 → b ≠ 0 → a * b ≠ 0 := by
   sorry
 
+theorem mul_right_eq_self (a b : ℕ) : a * b = a → b = 1 := by
+  sorry
+
 end MyNat
