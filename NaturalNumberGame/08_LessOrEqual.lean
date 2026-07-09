@@ -44,9 +44,12 @@ theorem le_antisymm (x y : ℕ) (hxy : x ≤ y) (hyx : y ≤ x) : x = y := by
     | intro a ha =>
       cases hyx with
         | intro b hb =>
-          sorry
-          -- rw [ha] at hb
-
-
+          rw [ha, add_assoc] at hb
+          symm at hb
+          apply add_right_eq_self at hb
+          apply add_right_eq_zero at hb
+          rw [hb, add_zero] at ha
+          symm at ha
+          exact ha
 
 end MyNat
