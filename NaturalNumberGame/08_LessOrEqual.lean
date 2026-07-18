@@ -51,5 +51,28 @@ theorem le_antisymm (x y : ℕ) (hxy : x ≤ y) (hyx : y ≤ x) : x = y := by
           rw [hb, add_zero] at ha
           symm at ha
           exact ha
+example (x y : ℕ) (h : x = 37 ∨ y = 42) : y = 42 ∨ x = 37 := by
+  cases h with
+  | inl h1 => exact Or.inr h1
+  | inr h2 => exact Or.inl h2
+
+
+theorem le_total (x y : ℕ) : x ≤ y ∨ y ≤ x := by
+  cases x with
+    | zero => cases y with
+       | zero =>
+          rw [zero_eq_0]
+          exact Or.inl (le_refl 0)
+       | succ d =>
+          rw [zero_eq_0]
+          exact Or.inl (zero_le (succ d))
+    | succ d1 => cases y with
+       | zero =>
+          rw [zero_eq_0]
+          exact Or.inr (zero_le (succ d1))
+       | succ d2 =>
+           cases le_total d1 d2 with
+              | inl h1 => sorry
+              | inr h2 => sorry
 
 end MyNat
