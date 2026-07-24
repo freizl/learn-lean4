@@ -72,7 +72,23 @@ theorem le_total (x y : ℕ) : x ≤ y ∨ y ≤ x := by
           exact Or.inr (zero_le (succ d1))
        | succ d2 =>
            cases le_total d1 d2 with
-              | inl h1 => sorry
-              | inr h2 => sorry
+              | inl h1 =>
+                cases h1 with
+                  | intro c hc =>
+                    -- rw [← add_left_cancel d2 (d1+c) 1] at hc
+                    -- rw [← add_assoc 1 d1 c] at hc
+                    -- rw [succ_add] at hc
+                    apply Or.inl
+                    use c
+                    rw [succ_add, ← hc]
+              | inr h2 =>
+                cases h2 with
+                  | intro c hc =>
+                    apply Or.inr
+                    use c
+                    rw [succ_add, ← hc]
+
+theorem succ_le_succ (x y : ℕ) (hx : succ x ≤ succ y) : x ≤ y := by
+
 
 end MyNat

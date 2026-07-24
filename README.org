@@ -23,6 +23,14 @@ exact ha
 
 3. What's best to find references of tactics locally/offline
 
+4. ~apply~ without ~at~ is backward reasoning. If the goal is ~B~ and Lean has
+   ~foo : A -> B~, then ~apply foo~ changes the goal to ~A~. Lean is planning to
+   build ~foo ?proof_of_A~. Example: ~Or.inl : A -> A ∨ B~, so when the goal is
+   ~A ∨ B~, ~apply Or.inl~ changes the goal to ~A~.
+
+   By contrast, ~apply foo at h~ is forward reasoning on a hypothesis: if
+   ~h : A~ and ~foo : A -> B~, then it changes ~h~ into ~h : B~.
+
 * References
 ** Further Learning resources
 1. [[https://github.com/leanprover-community/logic_and_proof][GitHub - leanprover-community/logic_and_proof]]
