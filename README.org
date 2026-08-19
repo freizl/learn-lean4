@@ -38,6 +38,7 @@ exact ha
 3. Natural Number Game
 4. Hitchhiker's Guide
 5. Mathematics in Lean
+6. [[https://lean4.dev/tactics][Theorem Proving in Lean 4 | Lean 4 Dev]]
 
 ** Extended reads
 1. Cedar policy framework source code
